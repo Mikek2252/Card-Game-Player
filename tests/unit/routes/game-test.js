@@ -1,7 +1,5 @@
 import { module, test } from 'qunit';
 import { setupTest } from 'ember-qunit';
-import EmberObject from '@ember/object';
-import sinon from 'sinon';
 
 module('Unit | Route | game', function(hooks) {
   setupTest(hooks);
@@ -11,20 +9,12 @@ module('Unit | Route | game', function(hooks) {
     assert.ok(route);
   });
 
-  test('Model creates record and returns it', function(assert) {
+  test('Model creates record and returns it', async function(assert) {
     const route = this.owner.lookup('route:game');
-    const object = EmberObject.create({
-      playerCount: 2
-    });
-    const createRecord = sinon.stub().returns(object);
-    route.set("store", {
-      createRecord
-    });
+    const model = await route.model();
 
-    route.model();
     assert.expect(2);
-    assert.equal(createRecord.callCount, 1, 'createRecord is called');
-    assert.deepEqual(createRecord.calledWith('game-context', { playerCount: 2 }), true);
-
-  })
+    assert.equal(model.playerCount, 2, "playerCount is set");
+    assert.equal(model.get('decks.firstObject.cardCount'), 10, 'cardCount is set');
+  });
 });
