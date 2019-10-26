@@ -15,6 +15,6 @@ module('Unit | Route | game', function(hooks) {
 
     assert.expect(2);
     assert.equal(model.playerCount, 2, "playerCount is set");
-    assert.equal(model.get('deck.cardCount'), 10, 'cardCount is set');
+    assert.equal(model.get('decks.firstObject.cardCount'), 10, 'cardCount is set');
   });
 });
