@@ -1,6 +1,6 @@
-import Model, { attr, belongsTo } from '@ember-data/model'
+import Model, { attr, hasMany } from '@ember-data/model'
 
 export default Model.extend({
   playerCount: attr(),
-  deck: belongsTo()
+  decks: hasMany()
 });
