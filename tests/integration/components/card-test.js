@@ -17,7 +17,7 @@ module('Integration | Component | card', function(hooks) {
 
     assert.expect(5);
     assert.ok(card, 'card should render');
-    assert.equal(card.classList.contains('face-down'), 'card has face-down class');
+    assert.equal(card.classList.contains('face-down'), true, 'card has face-down class');
     assert.equal(title, null, 'title has not rendered');
     assert.equal(image, null, 'image has not rendered');
     assert.equal(description, null, 'description has not rendered');
@@ -26,15 +26,15 @@ module('Integration | Component | card', function(hooks) {
   test('faceDown: false', async function(assert) {
     const cardModel = {
       title: 'Pot of Greed',
-      image: 'www.github.com',
+      image: 'http://www.github.com',
       description: 'Draw 2 cards'
     }
     this.set('faceDown', false)
     this.set('card', cardModel);
     await render(hbs`
       <Card
-        faceDown=faceDown
-        card=card
+        @faceDown={{faceDown}}
+        @card={{card}}
       />`
     );
 
@@ -46,8 +46,8 @@ module('Integration | Component | card', function(hooks) {
     assert.expect(5);
     assert.ok(card, 'card should render');
     assert.equal(card.classList.contains('face-down'), false, 'card has face-down class');
-    assert.equal(title.textContext.trim(), 'Pot of Greed', 'title has been rendered');
-    assert.equal(image.src, 'www.github.com', 'image has not rendered');
-    assert.equal(description.textContext.trim(), 'Draw 2 cards', 'description has not rendered');
+    assert.equal(title.textContent.trim(), 'Pot of Greed', 'title has been rendered');
+    assert.equal(image.src, 'http://www.github.com/', 'image has not rendered');
+    assert.equal(description.textContent.trim(), 'Draw 2 cards', 'description has not rendered');
   });
 });

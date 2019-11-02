@@ -25,7 +25,7 @@ module('Unit | Component | card', function(hooks) {
   test('faceDown | card: null | showBack: true', function(assert) {
     const component = this.owner.factoryFor('component:card').create();
     component.showBack = true;
-    assert.equal(component.faceDown, false);
+    assert.equal(component.faceDown, true);
   });
 });
 
