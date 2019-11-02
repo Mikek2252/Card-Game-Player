@@ -1,0 +1,18 @@
+<div class="card {{if faceDown "face-down"}}"
+  data-test-selector="card">
+  {{#if (not faceDown)}}
+    <p class="card-title"
+      data-test-selctor="card-title">
+      {{card.title}}
+    </p>
+    <img
+      class="card-image"
+      data-test-selector="card-image"
+      src={{card.image}}
+      alt={{card.name}} >
+    <p class="card-description"
+      data-test-selctor="card-description">
+      {{card.description}}
+    </p>
+  {{/if}}
+</div>
