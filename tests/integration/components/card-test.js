@@ -7,8 +7,8 @@ module('Integration | Component | card', function(hooks) {
   setupRenderingTest(hooks);
 
   test('faceDown: true', async function(assert) {
-    this.set('faceDown', true)
-    await render(hbs`<Card faceDown=faceDown/>`);
+    this.set('showBack', true)
+    await render(hbs`<Card @showBack={{showBack}}/>`);
 
     const card = find('[data-test="card"]');
     const title = find('[data-test="card-title"]');
@@ -29,11 +29,11 @@ module('Integration | Component | card', function(hooks) {
       image: 'http://www.github.com',
       description: 'Draw 2 cards'
     }
-    this.set('faceDown', false)
+    this.set('showBack', false)
     this.set('card', cardModel);
     await render(hbs`
       <Card
-        @faceDown={{faceDown}}
+        @showBack={{showBack}}
         @card={{card}}
       />`
     );
