@@ -28,7 +28,3 @@ module('Unit | Component | card', function(hooks) {
     assert.equal(component.faceDown, true);
   });
 });
-
-// faceDown: computed('showBack', 'card', function() {
-//   return this.showBack || !this.card;
-// })

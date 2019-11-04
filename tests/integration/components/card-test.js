@@ -10,10 +10,10 @@ module('Integration | Component | card', function(hooks) {
     this.set('faceDown', true)
     await render(hbs`<Card faceDown=faceDown/>`);
 
-    const card = find('[data-test-selector="card"]');
-    const title = find('[data-test-selector="card-title"]');
-    const image = find('[data-test-selector="card-image"]');
-    const description = find('[data-test-selector="card-description"]');
+    const card = find('[data-test="card"]');
+    const title = find('[data-test="card-title"]');
+    const image = find('[data-test="card-image"]');
+    const description = find('[data-test="card-description"]');
 
     assert.expect(5);
     assert.ok(card, 'card should render');
@@ -38,10 +38,10 @@ module('Integration | Component | card', function(hooks) {
       />`
     );
 
-    const card = find('[data-test-selector="card"]');
-    const title = find('[data-test-selector="card-title"]');
-    const image = find('[data-test-selector="card-image"]');
-    const description = find('[data-test-selector="card-description"]');
+    const card = find('[data-test="card"]');
+    const title = find('[data-test="card-title"]');
+    const image = find('[data-test="card-image"]');
+    const description = find('[data-test="card-description"]');
 
     assert.expect(5);
     assert.ok(card, 'card should render');
