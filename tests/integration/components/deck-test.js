@@ -20,8 +20,8 @@ module('Integration | Component | deck', function(hooks) {
       <Deck @deck={{deck}} />
     `);
 
-    const drawCardBtn = this.element.querySelector('[data-test-selector="draw-card-btn"]');
-    const cardCountParagraph = this.element.querySelector('[data-test-selector="deck-card-count"]');
+    const drawCardBtn = this.element.querySelector('[data-test="draw-card-btn"]');
+    const cardCountParagraph = this.element.querySelector('[data-test="deck-card-count"]');
 
     assert.expect(2);
     assert.equal(drawCardBtn.textContent.trim(), 'Draw a card');
@@ -43,8 +43,8 @@ module('Integration | Component | deck', function(hooks) {
       <Deck @deck={{deck}} />
     `);
 
-    const drawCardBtn = this.element.querySelector('[data-test-selector="draw-card-btn"]');
-    const cardCountParagraph = this.element.querySelector('[data-test-selector="deck-card-count"]');
+    const drawCardBtn = this.element.querySelector('[data-test="draw-card-btn"]');
+    const cardCountParagraph = this.element.querySelector('[data-test="deck-card-count"]');
 
     assert.equal(cardCountParagraph.textContent.trim(), '1', 'cardCount initial state is 1');
 

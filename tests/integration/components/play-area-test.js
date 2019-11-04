@@ -10,7 +10,7 @@ module('Integration | Component | play-area', function(hooks) {
 
     await render(hbs`<PlayArea />`);
 
-    const deckComponent = this.element.querySelector('[data-test-selector="deck-component"]');
+    const deckComponent = this.element.querySelector('[data-test="deck-component"]');
 
     assert.ok(deckComponent, 'deckComponent exists');
 
