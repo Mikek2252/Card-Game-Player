@@ -2,11 +2,13 @@ import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
+import { setupIntl } from 'ember-intl/test-support';
 import EmberObject from "@ember/object";
 import sinon from 'sinon';
 
 module('Integration | Component | deck', function(hooks) {
   setupRenderingTest(hooks);
+  setupIntl(hooks, 'en-gb');
 
   test('Data renders in component', async function(assert) {
 
